@@ -1,0 +1,34 @@
+.users-list{
+    max-width: 80%;
+    flex-wrap :nowrap;
+    justify-content: space-around;
+    margin: 30px auto;
+    color: #1B1464;
+    font-weight: bold;
+    position: relative;
+    
+}
+
+
+
+table {
+    background-color: #eee;
+   
+}
+
+.view{
+    color: green;
+    margin-right: 12px;
+}
+
+.edit{
+    color: darkorange;
+    margin-right: 30px;
+
+}
+
+.del{
+    color: crimson;
+
+}
+

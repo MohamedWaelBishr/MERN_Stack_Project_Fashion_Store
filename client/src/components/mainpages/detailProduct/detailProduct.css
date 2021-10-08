@@ -1,0 +1,87 @@
+.detail {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 50px;
+    font-size: 120%;
+    box-shadow: 0 0 15px #ddd;
+    margin-top: 5%;
+    margin-left: 10%;
+  }
+  
+  .detail img {
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+    height: 450px;
+    object-fit: contain;
+    display: block;
+    box-shadow: 0 0 5px #ddd;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  .detail img:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.5);
+    box-shadow: 0 0 5px #ddd;
+  }
+  
+  .box-detail {
+    max-width: 500px;
+    width: 100%;
+    margin: 5px 20px;
+  }
+  
+  .box-detail .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .box-detail .row h6 {
+    font-size: medium;
+    color: goldenrod;
+    margin-left: 10px;
+    text-transform: uppercase;
+  }
+  
+  .box-detail h2 {
+    text-transform: uppercase;
+    color: darkblue;
+    letter-spacing: 2px;
+    font-weight: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .box-detail p {
+    line-height: 1.5;
+    margin: 10px 0;
+    opacity: 0.8;
+  }
+  .box-detail .cart {
+    background: #333;
+    color: white;
+    margin-top: 10px;
+    padding: 10px 25px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .box-detail span {
+    color: crimson;
+    font-weight: bold;
+  }
+  
+  #related {
+    margin-left: 3%;
+    margin-top: 1%;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
