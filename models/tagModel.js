@@ -8,6 +8,10 @@ const tagSchema = new mongoose.Schema(
       trim: true,
       unique: true,
     },
+    color: {
+      type: String,
+      trim: true,
+    },
   },
   {
     timestamps: true,

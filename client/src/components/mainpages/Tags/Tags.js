@@ -3,12 +3,15 @@ import { GlobalState } from "../../../GlobalState";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import "./users.css";
+import "./tags.css";
+import { SketchPicker } from "react-color";
 
 function Users() {
   const state = useContext(GlobalState);
   const [allTags, SetAllTags] = state.tagsAPI.getTags;
-  const [tag, setTag] = useState("");
+  const [tag, setTag] = useState({ name: "", color: "#2ed573" });
+  const [color, setColor] = useState("#2ed573");
+  const [showColorPicker, setShowColorPicker] = useState(false);
   const [token] = state.token;
   const getAllTags = async (e) => {
     e.preventDefault();
@@ -31,7 +34,7 @@ function Users() {
     try {
       const res = await axios.post(
         `/api/tags/`,
-        { name: tag },
+        { name: tag, color: color },
         {
           headers: {
             "content-type": "application/json",
@@ -116,13 +119,40 @@ function Users() {
               <th>
                 <label>Create New Tag</label>
               </th>
+
+              <th>
+                <div className="color-picker">
+                  <button
+                    onClick={() =>
+                      setShowColorPicker((showColorPicker) => !showColorPicker)
+                    }
+                  >
+                    {showColorPicker
+                      ? " Close Color Picker"
+                      : "Open Color Picker"}
+                  </button>
+                  <span>
+                    {showColorPicker && (
+                      <SketchPicker
+                        color={color}
+                        onChange={(updatedColor) => setColor(updatedColor.hex)}
+                      />
+                    )}
+                  </span>
+                  <span>
+                    Color : <span style={{ color: color }}> {color}</span>{" "}
+                  </span>
+                </div>
+              </th>
+
               <th>
                 <form onSubmit={createTag}>
                   <input
                     id="input-create"
                     type="text"
                     name="tag"
-                    value={tag}
+                    // value={tag}
+                    placeholder="Enter New Tag Name"
                     required
                     onChange={(e) => setTag(e.target.value)}
                   />
@@ -136,7 +166,7 @@ function Users() {
                     }}
                     type="submit"
                   >
-                    Create
+                    Create Tag
                   </button>
                 </form>
               </th>
@@ -147,6 +177,7 @@ function Users() {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
+                <th scope="col">Color</th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
@@ -155,6 +186,9 @@ function Users() {
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
                   <td>{tag.name}</td>
+                  <td className="glow" style={{ backgroundColor: tag.color }}>
+                    {tag.color}
+                  </td>
                   <td>
                     <Link className="edit" to={`/tags/edit/${tag._id}`}>
                       Edit

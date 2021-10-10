@@ -59,8 +59,21 @@ function UserAPI(token) {
           headers: { Authorization: token },
         }
       );
+      Swal.fire({
+        icon: "success",
+        title: "Cart Operation",
+        text: "Item Added To Cart Successfully",
+        showConfirmButton: false,
+        timer: 1000,
+      });
     } else {
-      alert("This product has been added to cart.");
+      Swal.fire({
+        icon: "warning",
+        title: "Cart Operation",
+        text: "This Product Already Added To Your Cart",
+        showConfirmButton: false,
+        timer: 1000,
+      });
     }
   };
 

@@ -3,7 +3,7 @@ import { GlobalState } from "../../GlobalState";
 import Menu from "./icon/menu.png";
 import Close from "./icon/close.png";
 import Cart from "./icon/shopping-cart.png";
-import account from "./icon/account.png";
+// import account from "./icon/account.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 

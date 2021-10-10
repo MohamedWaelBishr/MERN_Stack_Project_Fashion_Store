@@ -4,12 +4,15 @@ import { useParams } from "react-router-dom";
 import { GlobalState } from "../../../GlobalState";
 import Swal from "sweetalert2";
 import { useHistory } from "react-router";
+import { SketchPicker } from "react-color";
 
 const EditUser = () => {
   const state = useContext(GlobalState);
   const { id } = useParams();
   const [token] = state.token;
   const [tag, setTag] = useState({});
+  const [color, setColor] = useState("");
+  const [showColorPicker, setShowColorPicker] = useState(false);
   const [allTags, SetAllTags] = state.tagsAPI.getTags;
   const history = useHistory();
 
@@ -82,6 +85,39 @@ const EditUser = () => {
               value={tag.name}
               onChange={(e) => onInputChange(e)}
             />
+          </div>
+
+          <div className="color-picker">
+            <span>
+              Previous Tag Color :
+              <span style={{ color: tag.color }}>{tag.color}</span>
+            </span>
+
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setShowColorPicker((showColorPicker) => !showColorPicker);
+              }}
+            >
+              <span style={{ fontWeight: "bold" }}>
+                {showColorPicker ? " Close Color Picker" : "Open Color Picker"}
+              </span>
+            </button>
+            <span>
+              {showColorPicker && (
+                <SketchPicker
+                  color={color}
+                  onChange={(updatedColor) => {
+                    setTag({ ...tag, color: updatedColor.hex });
+                    setColor(updatedColor.hex);
+                  }}
+                />
+              )}
+            </span>
+
+            <span>
+              New Color : <span style={{ color: color }}> {color}</span>
+            </span>
           </div>
         </form>
         <button

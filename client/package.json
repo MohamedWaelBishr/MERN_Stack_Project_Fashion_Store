@@ -14,6 +14,7 @@
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.6.4",
+    "react-color": "^2.19.3",
     "react-dom": "^16.13.1",
     "react-multi-select-component": "^4.1.13",
     "react-paypal-button-v2": "^2.6.3",
@@ -31,7 +32,17 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "root": true,
+    "extends": [
+      "plugin:react/recommended"
+    ],
+    "rules": {
+      "no-unused-vars": "off"
+    }
+  },
+  "proxy": "http://localhost:5000",
+  "devDependencies": {
+    "eslint-plugin-react": "^7.26.1"
   },
   "browserslist": {
     "production": [
@@ -44,6 +55,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "proxy": "http://localhost:5000"
+  }
 }

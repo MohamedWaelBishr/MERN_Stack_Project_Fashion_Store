@@ -1,12 +1,12 @@
 import React from "react";
 import BtnRender from "./BtnRender";
 import { Link } from "react-router-dom";
-import { GlobalState } from "../../../../GlobalState";
-import { useContext } from "react";
-import { axios } from "axios";
+// import { GlobalState } from "../../../../GlobalState";
+// import { useContext } from "react";
+// import { axios } from "axios";
 
 function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
-  const state = useContext(GlobalState);
+  // const state = useContext(GlobalState);
 
   const moveup = () => {
     window.scroll({
@@ -47,55 +47,21 @@ function ProductItem({ product, isAdmin, deleteProduct, handleCheck }) {
           style={{ display: "flex", justifyContent: "space-evenly" }}
         >
           {product.tags.map((tag) => {
-            if (tag === "50%") {
-              return (
-                <div
-                  className="chip"
-                  style={{
-                    backgroundColor: "red",
-                    borderRadius: "0",
-                    fontSize: "10px",
-                    color: "white",
-                    fontWeight: "bold",
-                  }}
-                  key={tag._id}
-                >
-                  {tag}
-                </div>
-              );
-            } else if (tag === "Black Friday") {
-              return (
-                <div
-                  className="chip"
-                  style={{
-                    backgroundColor: "black",
-                    borderRadius: "0",
-                    fontSize: "10px",
-                    color: "yellow",
-                    fontWeight: "bold",
-                  }}
-                  key={tag._id}
-                >
-                  {tag}
-                </div>
-              );
-            } else {
-              return (
-                <div
-                  className="chip"
-                  style={{
-                    backgroundColor: "#2ed573",
-                    borderRadius: "0",
-                    fontSize: "10px",
-                    color: "#1B1464",
-                    fontWeight: "bold",
-                  }}
-                  key={tag._id}
-                >
-                  {tag}
-                </div>
-              );
-            }
+            return (
+              <div
+                className="chip shadowOutLine"
+                style={{
+                  backgroundColor: `${tag.color}`,
+                  borderRadius: "0",
+                  fontSize: "10px",
+                  color: "white",
+                  fontWeight: "bold",
+                }}
+                key={tag._id}
+              >
+                {tag.name}
+              </div>
+            );
           })}
         </span>
       </div>

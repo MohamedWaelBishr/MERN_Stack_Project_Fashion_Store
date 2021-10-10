@@ -38,7 +38,7 @@ function CreateProduct() {
   const [tags] = state.tagsAPI.getTags;
   const options = [];
   tags.map((tag) => {
-    options.push({ _id: tag._id, name: tag.name });
+    options.push({ _id: tag._id, name: tag.name, color: tag.color });
   });
   // console.log({ options: options });
 
@@ -153,7 +153,11 @@ function CreateProduct() {
   const onSelectTags = (selectedList, selectedItem) => {
     let l = [];
     for (let x = 0; x < selectedList.length; x++) {
-      l.push(selectedList[x].name);
+      l.push({
+        _id: selectedList[x]._id,
+        name: selectedList[x].name,
+        color: selectedList[x].color,
+      });
     }
     selected = l;
     console.log(selected);
@@ -163,7 +167,11 @@ function CreateProduct() {
   const onRemoveTags = (selectedList, removedItem) => {
     let l = [];
     for (let x = 0; x < selectedList.length; x++) {
-      l.push(selectedList[x].name);
+      l.push({
+        _id: selectedList[x]._id,
+        name: selectedList[x].name,
+        color: selectedList[x].color,
+      });
     }
     selected = l;
     console.log(selected);

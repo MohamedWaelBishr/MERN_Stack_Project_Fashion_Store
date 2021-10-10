@@ -93,3 +93,7 @@
     height: 25px;
     z-index:199;
 }
+
+.shadowOutLine {
+  text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black;
+}

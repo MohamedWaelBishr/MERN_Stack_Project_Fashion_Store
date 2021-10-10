@@ -43,7 +43,7 @@ const productSchema = new mongoose.Schema(
       default: 0,
     },
     tags: {
-      type: [String],
+      type: [Object],
       require: false,
       trim: true,
       unique: false,

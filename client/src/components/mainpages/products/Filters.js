@@ -8,18 +8,18 @@ function Filters() {
   const [category, setCategory] = state.productsAPI.category;
   const [sort, setSort] = state.productsAPI.sort;
   const [search, setSearch] = state.productsAPI.search;
-  const [tag, setTag] = state.productsAPI.tag;
-  const [tags] = state.tagsAPI.getTags;
+  //const [tag, setTag] = state.productsAPI.tag;
+  //const [tags] = state.tagsAPI.getTags;
 
   const handleCategory = (e) => {
     setCategory(e.target.value);
     setSearch("");
   };
 
-  const handleTag = (e) => {
-    setTag(e.target.value);
-    setSearch("");
-  };
+  // const handleTag = (e) => {
+  //   setTag(e.target.value);
+  //   setSearch("");
+  // };
 
   return (
     <div className="filter_menu">

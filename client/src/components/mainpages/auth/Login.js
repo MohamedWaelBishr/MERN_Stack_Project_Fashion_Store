@@ -11,7 +11,11 @@ function Login() {
 
   const onChangeInput = (e) => {
     const { name, value } = e.target;
-    setUser({ ...user, [name]: value });
+    if (name === "email") {
+      setUser({ ...user, [name]: value.toLowerCase() });
+    } else {
+      setUser({ ...user, [name]: value });
+    }
   };
 
   const loginSubmit = async (e) => {
