@@ -1,5 +1,3 @@
-## Demo: https://bishr-fashion-store.herokuapp.com/
-
 > Ecommerce website built with the MERN stack with React Context API for state management, CSS for style
 
 ## Install dependencies for server
